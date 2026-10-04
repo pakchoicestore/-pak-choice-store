@@ -18,7 +18,6 @@ body {
     color: #183b2a;
 }
 
-/* Header */
 header {
     background: linear-gradient(135deg, #064e3b, #0f766e);
     color: white;
@@ -36,7 +35,6 @@ header p {
     font-size: 16px;
 }
 
-/* Navigation */
 nav {
     background: white;
     text-align: center;
@@ -54,7 +52,6 @@ nav a {
     font-weight: bold;
 }
 
-/* Hero */
 .hero {
     text-align: center;
     padding: 55px 20px;
@@ -83,7 +80,6 @@ nav a {
     font-weight: bold;
 }
 
-/* Search */
 .search {
     text-align: center;
     padding: 25px 15px;
@@ -99,7 +95,6 @@ nav a {
     outline: none;
 }
 
-/* Products */
 .products {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -127,6 +122,7 @@ nav a {
     height: 230px;
     object-fit: cover;
     border-radius: 14px;
+    background: #f1f5f3;
 }
 
 .product h3 {
@@ -151,7 +147,6 @@ nav a {
     cursor: pointer;
 }
 
-/* Delivery */
 .delivery {
     background: white;
     margin: 30px 15px;
@@ -179,7 +174,6 @@ nav a {
     resize: vertical;
 }
 
-/* Footer */
 footer {
     background: #064e3b;
     color: white;
@@ -221,197 +215,6 @@ footer {
 </div>
 
 <section class="products" id="products">
-
-    <div class="product">
-        <img src="1791106845946.jpg" alt="CeraVe Face Wash">
-        <h3>CeraVe Whitening Face Wash</h3>
-        <div class="price">Rs. 770</div>
-        <button class="order-btn"
-            onclick="selectProduct('CeraVe Whitening Face Wash',770)">
-            Order Now
-        </button>
-    </div>
-
-    <div class="product">
-        <img src="1791106924351.jpg" alt="Blue Kurta">
-        <h3>Blue Embroidered Kurta Pajama Set</h3>
-        <div class="price">Rs. 2,689</div>
-        <button class="order-btn"
-            onclick="selectProduct('Blue Embroidered Kurta Pajama Set',2689)">
-            Order Now
-        </button>
-    </div>
-
-    <div class="product">
-        <img src="1791106961901.jpg" alt="Women's Shoulder Bag">
-        <h3>Women's Checkered Leather Shoulder Bag</h3>
-        <div class="price">Rs. 2,089</div>
-        <button class="order-btn"
-            onclick="selectProduct('Women Checkered Leather Shoulder Bag',2089)">
-            Order Now
-        </button>
-    </div>
-
-    <div class="product">
-        <img src="https://placehold.co/400x300/e8f5e9/14532d?text=Casual+T-Shirt"
-             alt="Men's Casual T-Shirt">
-        <h3>Men's Casual T-Shirt</h3>
-        <div class="price">Rs. 1,299</div>
-        <button class="order-btn"
-            onclick="selectProduct('Men Casual T-Shirt',1299)">
-            Order Now
-        </button>
-    </div>
-
-    <div class="product">
-        <img src="https://placehold.co/400x300/fce7f3/831843?text=Handbag"
-             alt="Women's Handbag">
-        <h3>Women's Handbag</h3>
-        <div class="price">Rs. 1,799</div>
-        <button class="order-btn"
-            onclick="selectProduct('Women Handbag',1799)">
-            Order Now
-        </button>
-    </div>
-
-    <div class="product">
-        <img src="https://placehold.co/400x300/e0f2fe/075985?text=Wireless+Earbuds"
-             alt="Wireless Earbuds">
-        <h3>Wireless Earbuds</h3>
-        <div class="price">Rs. 1,499</div>
-        <button class="order-btn"
-            onclick="selectProduct('Wireless Earbuds',1499)">
-            Order Now
-        </button>
-    </div>
-
-</section>
-
-<section class="delivery" id="delivery">
-
-    <h2>🚚 Delivery Details</h2>
-    <p>Apni details fill karein:</p>
-
-    <form onsubmit="sendOrder(event)">
-
-        <label>Full Name</label>
-        <input
-            type="text"
-            id="customerName"
-            placeholder="Apna naam"
-            required
-        >
-
-        <label>Mobile Number</label>
-        <input
-            type="tel"
-            id="customerPhone"
-            placeholder="03XXXXXXXXX"
-            pattern="03[0-9]{9}"
-            required
-        >
-
-        <label>Delivery Address</label>
-        <textarea
-            id="customerAddress"
-            placeholder="Mukammal delivery address"
-            required
-        ></textarea>
-
-        <label>Selected Product</label>
-        <input
-            type="text"
-            id="selectedProduct"
-            readonly
-            required
-        >
-
-        <label>Price</label>
-        <input
-            type="text"
-            id="selectedPrice"
-            readonly
-            required
-        >
-
-        <button class="order-btn" type="submit">
-            Confirm Order on WhatsApp
-        </button>
-
-    </form>
-</section>
-
-<footer id="contact">
-    <h3>🛍️ Pak Choice Store</h3>
-    <p>Quality Products • Easy Ordering</p>
-    <p>WhatsApp Orders Available</p>
-    <p>© 2026 Pak Choice Store</p>
-</footer>
-
-<script>
-
-let productName = "";
-let productPrice = 0;
-
-function selectProduct(name, price) {
-
-    productName = name;
-    productPrice = price;
-
-    document.getElementById("selectedProduct").value = name;
-    document.getElementById("selectedPrice").value = "Rs. " + price;
-
-    document.getElementById("delivery").scrollIntoView({
-        behavior: "smooth"
-    });
-}
-
-function searchProducts() {
-
-    let search =
-        document.getElementById("searchBox").value.toLowerCase();
-
-    document.querySelectorAll(".product").forEach(function(product) {
-
-        let name = product.innerText.toLowerCase();
-
-        product.style.display =
-            name.includes(search) ? "block" : "none";
-    });
-}
-
-function sendOrder(event) {
-
-    event.preventDefault();
-
-    let name =
-        document.getElementById("customerName").value;
-
-    let phone =
-        document.getElementById("customerPhone").value;
-
-    let address =
-        document.getElementById("customerAddress").value;
-
-    let message =
-        "Assalam-o-Alaikum, mujhe order karna hai.%0A%0A" +
-        "Name: " + name + "%0A" +
-        "Phone: " + phone + "%0A" +
-        "Address: " + address + "%0A" +
-        "Product: " + productName + "%0A" +
-        "Price: Rs. " + productPrice;
-
-    window.open(
-        "https://wa.me/923702118764?text=" +
-        encodeURIComponent(message),
-        "_blank"
-    );
-}
-
-</script>
-
-</body>
-</html>
     <!-- PRODUCT 1 -->
     <div class="product">
         <img src="1791106845946.jpg" alt="CeraVe Face Wash">
@@ -550,7 +353,10 @@ function sendOrder(event) {
         <button class="order-btn"
             onclick="selectProduct('CeraVe Foaming Facial Cleanser',3395)">
             Order Now
-        </
+        </button>
+    </div>
+
+</section>
 <section class="delivery" id="delivery">
 
     <h2>🚚 Delivery Details</h2>
