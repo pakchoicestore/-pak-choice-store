@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pak Choice Store</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+    }
+
+    header p {
+      margin-top: 6px;
+      color: #ddd;
+    }
+
+    .hero {
+      background: white;
+      text-align: center;
+      padding: 35px 15px;
+    }
+
+    .hero h2 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #666;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .product {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    }
+
+    .product img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 10px;
+      background: #eee;
+    }
+
+    .product h3 {
+      margin: 12px 0 8px;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .order-btn {
+      display: inline-block;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 7px;
+      font-weight: bold;
+    }
+
+    .contact {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #000;
+      color: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Pak Choice Store</h1>
+    <p>Best Products • Best Choice • Pakistan</p>
+  </header>
+
+  <section class="hero">
+    <h2>Welcome to Pak Choice Store</h2>
+    <p>Apni pasand ka product select karein aur WhatsApp par order karein.</p>
+  </section>
+
+  <section class="products">
+
+    <div class="product">
+      <img src="https://via.placeholder.com/500x500?text=Product+1" alt="Product 1">
+      <h3>Beautiful Dress</h3>
+      <div class="price">Rs. 2,499</div>
+      <a class="order-btn" href="https://wa.me/923001234567?text=Assalam-o-Alaikum%2C%20mujhe%20Beautiful%20Dress%20order%20karni%20hai." target="_blank">
+        Order on WhatsApp
+      </a>
+    </div>
+
+    <div class="product">
+      <img src="https://via.placeholder.com/500x500?text=Product+2" alt="Product 2">
+      <h3>Stylish Suit</h3>
+      <div class="price">Rs. 2,999</div>
+      <a class="order-btn" href="https://wa.me/923001234567?text=Assalam-o-Alaikum%2C%20mujhe%20Stylish%20Suit%20order%20karna%20hai." target="_blank">
+        Order on WhatsApp
+      </a>
+    </div>
+
+    <div class="product">
+      <img src="https://via.placeholder.com/500x500?text=Product+3" alt="Product 3">
+      <h3>New Collection</h3>
+      <div class="price">Rs. 1,999</div>
+      <a class="order-btn" href="https://wa.me/923001234567?text=Assalam-o-Alaikum%2C%20mujhe%20New%20Collection%20order%20karni%20hai." target="_blank">
+        Order on WhatsApp
+      </a>
+    </div>
+
+  </section>
+
+  <section class="contact">
+    <h2>Pak Choice Store</h2>
+    <p>Order ke liye WhatsApp par message karein.</p>
+  </section>
+
+  <footer>
+    © 2026 Pak Choice Store. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
