@@ -10,6 +10,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #f5f5f5;
+    color: #222;
 }
 
 header {
@@ -22,49 +23,72 @@ header {
 .hero {
     background: white;
     text-align: center;
-    padding: 30px 15px;
+    padding: 25px 10px;
 }
 
 .products {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
-    padding: 25px;
+    padding: 20px;
 }
 
 .product {
     background: white;
-    border-radius: 12px;
     padding: 15px;
+    border-radius: 12px;
     text-align: center;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 12px #ddd;
 }
 
 .product img {
     width: 100%;
-    height: 230px;
+    height: 220px;
     object-fit: cover;
     border-radius: 10px;
-}
-
-.product h3 {
-    margin: 12px 0 8px;
 }
 
 .price {
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 12px;
+    margin: 12px;
 }
 
 .order-btn {
-    display: inline-block;
     background: #25D366;
     color: white;
+    padding: 12px;
+    display: inline-block;
     text-decoration: none;
-    padding: 12px 20px;
     border-radius: 7px;
-    font-weight: bold;
+}
+
+.delivery {
+    background: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 12px;
+}
+
+.delivery input,
+.delivery textarea,
+.delivery select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.delivery button {
+    width: 100%;
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 7px;
+    font-size: 16px;
 }
 </style>
 </head>
@@ -78,45 +102,99 @@ header {
 
 <section class="hero">
 <h2>Welcome to Pak Choice Store</h2>
-<p>Apni pasand ka product select karein aur WhatsApp par order karein.</p>
+<p>Apni pasand ka product select karein aur order karein.</p>
 </section>
-<section class="products">
 
+<section class="products">
 <div class="product">
-<img src="1791106845946.jpg" alt="CeraVe Whitening Face Wash">
+<img src="1791106845946.jpg" alt="Face Wash">
 <h3>CeraVe Whitening Face Wash</h3>
 <div class="price">Rs. 770</div>
-<a class="order-btn" href="https://wa.me/923702118764?text=Assalam-o-Alaikum%2C%20mujhe%20CeraVe%20Whitening%20Face%20Wash%20order%20karna%20hai." target="_blank">
-Order on WhatsApp
-</a>
+<button class="order-btn" onclick="selectProduct('CeraVe Whitening Face Wash',770)">
+Order Now
+</button>
 </div>
 
 <div class="product">
-<img src="1791106924351.jpg" alt="Blue Embroidered Kurta Pajama Set for Women">
-<h3>Blue Embroidered Kurta Pajama Set for Women</h3>
+<img src="1791106924351.jpg" alt="Blue Embroidered Kurta Pajama">
+<h3>Blue Embroidered Kurta Pajama Set</h3>
 <div class="price">Rs. 2,689</div>
-<a class="order-btn" href="https://wa.me/923702118764?text=Assalam-o-Alaikum%2C%20mujhe%20Blue%20Embroidered%20Kurta%20Pajama%20Set%20for%20Women%20order%20karna%20hai." target="_blank">
-Order on WhatsApp
-</a>
+<button class="order-btn" onclick="selectProduct('Blue Embroidered Kurta Pajama Set',2689)">
+Order Now
+</button>
 </div>
 
 <div class="product">
-<img src="1791106961901.jpg" alt="Women's Checkered Leather Shoulder Bag">
+<img src="1791106961901.jpg" alt="Shoulder Bag">
 <h3>Women's Checkered Leather Shoulder Bag</h3>
 <div class="price">Rs. 2,089</div>
-<a class="order-btn" href="https://wa.me/923702118764?text=Assalam-o-Alaikum%2C%20mujhe%20Women%27s%20Checkered%20Leather%20Shoulder%20Bag%20order%20karna%20hai." target="_blank">
-Order on WhatsApp
-</a>
+<button class="order-btn" onclick="selectProduct('Women Checkered Leather Shoulder Bag',2089)">
+Order Now
+</button>
 </div>
 
 </section>
-<section class="contact">
-<h2>Pak Choice Store</h2>
-<p>Order ke liye WhatsApp par message karein.</p>
-</section>
 
-<footer>
-© 2026 Pak Choice Store. All Rights Reserved.
+<section class="delivery">
+<h2>Delivery Details</h2>
+<p>Apni details fill karein:</p>
+
+<form onsubmit="sendOrder(event)">
+<label>Full Name</label>
+<input type="text" id="customerName" placeholder="Apna naam likhein" required>
+
+<label>Mobile Number</label>
+<input type="tel" id="customerPhone" placeholder="03XXXXXXXXX" required>
+
+<label>Delivery Address</label>
+<textarea id="customerAddress" placeholder="Apna mukammal address likhein" required></textarea>
+
+<label>Selected Product</label>
+<input type="text" id="selectedProduct" placeholder="Pehle product par Order Now dabayein" readonly required>
+
+<label>Price</label>
+<input type="text" id="selectedPrice" readonly required>
+
+<button type="submit">Send Order on WhatsApp</button>
+</form>
+</section>
+<script>
+let productName = "";
+let productPrice = 0;
+
+function selectProduct(name, price) {
+    productName = name;
+    productPrice = price;
+
+    document.getElementById("selectedProduct").value = name;
+    document.getElementById("selectedPrice").value = "Rs. " + price;
+
+    document.querySelector(".delivery").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function sendOrder(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("customerName").value;
+    const phone = document.getElementById("customerPhone").value;
+    const address = document.getElementById("customerAddress").value;
+
+    const message =
+        "Assalam-o-Alaikum, mujhe order karna hai.%0A%0A" +
+        "Name: " + encodeURIComponent(name) + "%0A" +
+        "Phone: " + encodeURIComponent(phone) + "%0A" +
+        "Address: " + encodeURIComponent(address) + "%0A" +
+        "Product: " + encodeURIComponent(productName) + "%0A" +
+        "Price: Rs. " + productPrice;
+
+    window.open("https://wa.me/923702118764?text=" + message, "_blank");
+}
+</script>
+
+<footer style="background:#111;color:white;text-align:center;padding:20px;">
+<p>© 2026 Pak Choice Store</p>
 </footer>
 
 </body>
