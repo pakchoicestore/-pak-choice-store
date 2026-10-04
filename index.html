@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Pak Choice Store</title>
 
 <style>
@@ -13,113 +14,178 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f5f7fb;
-    color: #222;
+    background: #f4faf6;
+    color: #183b2a;
 }
 
+/* Header */
 header {
-    background: #102a43;
+    background: linear-gradient(135deg, #064e3b, #0f766e);
     color: white;
-    padding: 25px 15px;
     text-align: center;
+    padding: 35px 15px;
 }
 
 header h1 {
     margin: 0;
-    font-size: 30px;
+    font-size: 34px;
 }
 
 header p {
-    color: #d9e2ec;
+    margin: 10px 0 0;
+    font-size: 16px;
 }
 
+/* Navigation */
 nav {
-    background: #243b53;
+    background: white;
     text-align: center;
-    padding: 12px;
+    padding: 15px 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 nav a {
-    color: white;
+    color: #064e3b;
     text-decoration: none;
-    margin: 10px;
+    margin: 0 10px;
     font-weight: bold;
 }
 
+/* Hero */
 .hero {
-    background: linear-gradient(135deg, #d9f3e5, #ffffff);
     text-align: center;
-    padding: 45px 15px;
+    padding: 55px 20px;
+    background: linear-gradient(135deg, #dcfce7, #ffffff);
 }
 
 .hero h2 {
-    color: #102a43;
-    font-size: 28px;
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #064e3b;
 }
 
 .hero p {
-    color: #52606d;
+    color: #486158;
+    font-size: 17px;
 }
 
+.shop-btn {
+    display: inline-block;
+    margin-top: 15px;
+    background: #16a34a;
+    color: white;
+    text-decoration: none;
+    padding: 14px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+/* Search */
 .search {
     text-align: center;
-    padding: 20px;
+    padding: 25px 15px;
 }
 
 .search input {
     width: 90%;
     max-width: 500px;
-    padding: 14px;
-    border: 1px solid #ccc;
-    border-radius: 25px;
+    padding: 15px 20px;
+    border: 1px solid #cbd5d1;
+    border-radius: 30px;
     font-size: 16px;
+    outline: none;
 }
 
+/* Products */
 .products {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    gap: 22px;
     padding: 20px;
-    max-width: 1100px;
+    max-width: 1150px;
     margin: auto;
 }
 
 .product {
     background: white;
     padding: 15px;
-    border-radius: 15px;
+    border-radius: 18px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+}
+
+.product:hover {
+    transform: translateY(-4px);
 }
 
 .product img {
     width: 100%;
     height: 230px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 14px;
 }
 
 .product h3 {
     font-size: 18px;
-    min-height: 42px;
+    min-height: 45px;
 }
 
 .price {
     font-size: 22px;
     font-weight: bold;
-    color: #16834a;
+    color: #15803d;
     margin: 12px;
 }
 
 .order-btn {
-    display: inline-block;
-    background: #20b965;
+    background: #16a34a;
     color: white;
-    padding: 12px 18px;
-    border-radius: 8px;
+    padding: 12px 20px;
     border: none;
-    text-decoration: none;
+    border-radius: 25px;
     font-weight: bold;
+    cursor: pointer;
+}
+
+/* Delivery */
+.delivery {
+    background: white;
+    margin: 30px 15px;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+}
+
+.delivery h2 {
+    color: #064e3b;
+}
+
+.delivery input,
+.delivery textarea {
+    width: 100%;
+    padding: 13px;
+    margin: 7px 0 15px;
+    border: 1px solid #cbd5d1;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.delivery textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Footer */
+footer {
+    background: #064e3b;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+    margin-top: 30px;
 }
 </style>
 </head>
@@ -127,262 +193,168 @@ nav a {
 <body>
 
 <header>
-<h1>Pak Choice Store</h1>
-<p>Your Choice, Our Priority</p>
+    <h1>🛍️ Pak Choice Store</h1>
+    <p>Your Choice, Our Priority</p>
 </header>
 
 <nav>
-<a href="#home">Home</a>
-<a href="#products">Products</a>
-<a href="#delivery">Order</a>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#delivery">Order</a>
+    <a href="#contact">Contact</a>
 </nav>
 
 <section class="hero" id="home">
-<h2>Welcome to Pak Choice Store</h2>
-<p>Quality Products • Easy Ordering • Pakistan</p>
-<p>Apni pasand ka product select karein aur WhatsApp par order karein.</p>
+    <h2>Welcome to Pak Choice Store</h2>
+    <p>Quality Products • Best Prices • Easy Ordering</p>
+    <p>Apni pasand ka product select karein aur WhatsApp par order karein.</p>
+    <a href="#products" class="shop-btn">SHOP NOW</a>
 </section>
 
 <div class="search">
-<input type="text" id="searchBox" placeholder="Search your product..." onkeyup="searchProducts()">
+    <input
+        type="text"
+        id="searchBox"
+        placeholder="🔍 Search your product..."
+        onkeyup="searchProducts()"
+    >
 </div>
 
 <section class="products" id="products">
-<div class="product">
-<img src="1791106845946.jpg" alt="CeraVe Face Wash">
-<h3>CeraVe Whitening Face Wash</h3>
-<div class="price">Rs. 770</div>
-<button class="order-btn" onclick="selectProduct('CeraVe Whitening Face Wash',770)">
-Order Now
-</button>
-</div>
 
-<div class="product">
-<img src="1791106924351.jpg" alt="Blue Embroidered Kurta">
-<h3>Blue Embroidered Kurta Pajama Set</h3>
-<div class="price">Rs. 2,689</div>
-<button class="order-btn" onclick="selectProduct('Blue Embroidered Kurta Pajama Set',2689)">
-Order Now
-</button>
-</div>
+    <div class="product">
+        <img src="1791106845946.jpg" alt="CeraVe Face Wash">
+        <h3>CeraVe Whitening Face Wash</h3>
+        <div class="price">Rs. 770</div>
+        <button class="order-btn"
+            onclick="selectProduct('CeraVe Whitening Face Wash',770)">
+            Order Now
+        </button>
+    </div>
 
-<div class="product">
-<img src="1791106961901.jpg" alt="Women's Shoulder Bag">
-<h3>Women's Checkered Leather Shoulder Bag</h3>
-<div class="price">Rs. 2,089</div>
-<button class="order-btn" onclick="selectProduct('Women Checkered Leather Shoulder Bag',2089)">
-Order Now
-</button>
-</div>
+    <div class="product">
+        <img src="1791106924351.jpg" alt="Blue Kurta">
+        <h3>Blue Embroidered Kurta Pajama Set</h3>
+        <div class="price">Rs. 2,689</div>
+        <button class="order-btn"
+            onclick="selectProduct('Blue Embroidered Kurta Pajama Set',2689)">
+            Order Now
+        </button>
+    </div>
+
+    <div class="product">
+        <img src="1791106961901.jpg" alt="Women's Shoulder Bag">
+        <h3>Women's Checkered Leather Shoulder Bag</h3>
+        <div class="price">Rs. 2,089</div>
+        <button class="order-btn"
+            onclick="selectProduct('Women Checkered Leather Shoulder Bag',2089)">
+            Order Now
+        </button>
+    </div>
+
+    <div class="product">
+        <img src="https://placehold.co/400x300/e8f5e9/14532d?text=Casual+T-Shirt"
+             alt="Men's Casual T-Shirt">
+        <h3>Men's Casual T-Shirt</h3>
+        <div class="price">Rs. 1,299</div>
+        <button class="order-btn"
+            onclick="selectProduct('Men Casual T-Shirt',1299)">
+            Order Now
+        </button>
+    </div>
+
+    <div class="product">
+        <img src="https://placehold.co/400x300/fce7f3/831843?text=Handbag"
+             alt="Women's Handbag">
+        <h3>Women's Handbag</h3>
+        <div class="price">Rs. 1,799</div>
+        <button class="order-btn"
+            onclick="selectProduct('Women Handbag',1799)">
+            Order Now
+        </button>
+    </div>
+
+    <div class="product">
+        <img src="https://placehold.co/400x300/e0f2fe/075985?text=Wireless+Earbuds"
+             alt="Wireless Earbuds">
+        <h3>Wireless Earbuds</h3>
+        <div class="price">Rs. 1,499</div>
+        <button class="order-btn"
+            onclick="selectProduct('Wireless Earbuds',1499)">
+            Order Now
+        </button>
+    </div>
 
 </section>
-<div class="product">
-<img src="https://placehold.co/400x300?text=Mens+T-Shirt" alt="Men's Casual T-Shirt">
-<h3>Men's Casual T-Shirt</h3>
-<div class="price">Rs. 1,299</div>
-<button class="order-btn" onclick="selectProduct('Men Casual T-Shirt',1299)">
-Order Now
-</button>
-</div>
 
-<div class="product">
-<img src="https://placehold.co/400x300?text=Womens+Handbag" alt="Women's Handbag">
-<h3>Women's Handbag</h3>
-<div class="price">Rs. 1,799</div>
-<button class="order-btn" onclick="selectProduct('Women Handbag',1799)">
-Order Now
-</button>
-</div>
+<section class="delivery" id="delivery">
 
-<div class="product">
-<img src="https://placehold.co/400x300?text=Wireless+Earbuds" alt="Wireless Earbuds">
-<h3>Wireless Earbuds</h3>
-<div class="price">Rs. 1,499</div>
-<button class="order-btn" onclick="selectProduct('Wireless Earbuds',1499)">
-Order Now
-</button>
-</div>
-<section class="delivery" id="delivery" style="background:white;margin:20px;padding:20px;border-radius:15px;">
-<h2>Delivery Details</h2>
-<p>Apni details fill karein:</p>
+    <h2>🚚 Delivery Details</h2>
+    <p>Apni details fill karein:</p>
 
-<form onsubmit="sendOrder(event)">
-<label>Full Name</label>
-<input type="text" id="customerName" placeholder="Apna naam" required style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;">
+    <form onsubmit="sendOrder(event)">
 
-<label>Mobile Number</label>
-<input type="tel" id="customerPhone" placeholder="03XXXXXXXXX" pattern="03[0-9]{9}" required style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;">
+        <label>Full Name</label>
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Apna naam"
+            required
+        >
 
-<label>Delivery Address</label>
-<textarea id="customerAddress" placeholder="Mukammal delivery address" required style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;"></textarea>
+        <label>Mobile Number</label>
+        <input
+            type="tel"
+            id="customerPhone"
+            placeholder="03XXXXXXXXX"
+            pattern="03[0-9]{9}"
+            required
+        >
 
-<label>Selected Product</label>
-<input type="text" id="selectedProduct" readonly required style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;">
+        <label>Delivery Address</label>
+        <textarea
+            id="customerAddress"
+            placeholder="Mukammal delivery address"
+            required
+        ></textarea>
 
-<label>Price</label>
-<input type="text" id="selectedPrice" readonly required style="width:100%;padding:12px;margin:8px 0;box-sizing:border-box;">
+        <label>Selected Product</label>
+        <input
+            type="text"
+            id="selectedProduct"
+            readonly
+            required
+        >
 
-<button type="submit" class="order-btn">Confirm Order on WhatsApp</button>
-</form>
+        <label>Price</label>
+        <input
+            type="text"
+            id="selectedPrice"
+            readonly
+            required
+        >
+
+        <button class="order-btn" type="submit">
+            Confirm Order on WhatsApp
+        </button>
+
+    </form>
 </section>
-<script>
-let productName = "";
-let productPrice = 0;
 
-function selectProduct(name, price) {
-    productName = name;
-    productPrice = price;
-
-    document.getElementById("selectedProduct").value = name;
-    document.getElementById("selectedPrice").value = "Rs. " + price;
-
-    document.getElementById("delivery").scrollIntoView({
-        behavior: "smooth"
-    });
-}
-
-function searchProducts() {
-    let search = document.getElementById("searchBox").value.toLowerCase();
-    let products = document.querySelectorAll(".product");
-
-    products.forEach(function(product) {
-        let name = product.innerText.toLowerCase();
-        product.style.display = name.includes(search) ? "block" : "none";
-    });
-}
-
-function sendOrder(event) {
-    event.preventDefault();
-
-    const name = document.getElementById("customerName").value;
-    const phone = document.getElementById("customerPhone").value;
-    const address = document.getElementById("customerAddress").value;
-
-    const message =
-        "Assalam-o-Alaikum, mujhe order karna hai.\n\n" +
-        "Name: " + name + "\n" +
-        "Phone: " + phone + "\n" +
-        "Address: " + address + "\n" +
-        "Product: " + productName + "\n" +
-        "Price: Rs. " + productPrice;
-
-    window.open(
-        "https://wa.me/923702118764?text=" + encodeURIComponent(message),
-        "_blank"
-    );
-}
-</script>
-
-<footer style="background:#102a43;color:white;text-align:center;padding:25px;margin-top:20px;">
-<h3>Pak Choice Store</h3>
-<p>Thank you for shopping with us!</p>
-<p>© 2026 Pak Choice Store</p>
+<footer id="contact">
+    <h3>🛍️ Pak Choice Store</h3>
+    <p>Quality Products • Easy Ordering</p>
+    <p>WhatsApp Orders Available</p>
+    <p>© 2026 Pak Choice Store</p>
 </footer>
 
-</body>
-</html>
-</style>
-</head>
-
-<body>
-
-<header>
-<h1>🛍️ Pak Choice Store</h1>
-<p>Quality Products | Best Prices | Your Choice</p>
-</header>
-
-<nav>
-<a href="#home">Home</a>
-<a href="#products">Products</a>
-<a href="#delivery">Order</a>
-<a href="#contact">Contact</a>
-</nav>
-
-<section class="hero" id="home">
-<h2>Welcome to Pak Choice Store</h2>
-<p>Apni pasand ka product select karein aur WhatsApp par order karein.</p>
-</section>
-
-<div class="search">
-<input type="text" id="searchBox"
-placeholder="Search for products..."
-onkeyup="searchProducts()">
-</div>
-
-<section class="products" id="products">
-
-<div class="product">
-<img src="1791106845946.jpg" alt="Face Wash">
-<h3>CeraVe Whitening Face Wash</h3>
-<div class="price">Rs. 770</div>
-<button class="order-btn" onclick="selectProduct('CeraVe Whitening Face Wash',770)">Order Now</button>
-</div>
-
-<div class="product">
-<img src="1791106924351.jpg" alt="Blue Kurta">
-<h3>Blue Embroidered Kurta Pajama Set</h3>
-<div class="price">Rs. 2,689</div>
-<button class="order-btn" onclick="selectProduct('Blue Embroidered Kurta Pajama Set',2689)">Order Now</button>
-</div>
-
-<div class="product">
-<img src="1791106961901.jpg" alt="Shoulder Bag">
-<h3>Women's Checkered Leather Shoulder Bag</h3>
-<div class="price">Rs. 2,089</div>
-<button class="order-btn" onclick="selectProduct('Women Checkered Leather Shoulder Bag',2089)">Order Now</button>
-</div>
-
-<div class="product">
-<img src="https://placehold.co/400x300/e8f5e9/14532d?text=Casual+T-Shirt" alt="Casual T-Shirt">
-<h3>Men's Casual T-Shirt</h3>
-<div class="price">Rs. 1,299</div>
-<button class="order-btn" onclick="selectProduct('Men Casual T-Shirt',1299)">Order Now</button>
-</div>
-
-<div class="product">
-<img src="https://placehold.co/400x300/fce7f3/831843?text=Handbag" alt="Women's Handbag">
-<h3>Women's Handbag</h3>
-<div class="price">Rs. 1,799</div>
-<button class="order-btn" onclick="selectProduct('Women Handbag',1799)">Order Now</button>
-</div>
-
-<div class="product">
-<img src="https://placehold.co/400x300/e0f2fe/075985?text=Wireless+Earbuds" alt="Wireless Earbuds">
-<h3>Wireless Earbuds</h3>
-<div class="price">Rs. 1,499</div>
-<button class="order-btn" onclick="selectProduct('Wireless Earbuds',1499)">Order Now</button>
-</div>
-
-</section>
-
-<section id="delivery" style="background:white;margin:20px;padding:20px;border-radius:12px;">
-<h2>🚚 Delivery Details</h2>
-<p>Apni details fill karein:</p>
-
-<form onsubmit="sendOrder(event)">
-<label>Full Name</label>
-<input id="customerName" type="text" placeholder="Apna naam" required style="width:100%;padding:12px;margin:8px 0;">
-
-<label>Mobile Number</label>
-<input id="customerPhone" type="tel" placeholder="03XXXXXXXXX" pattern="03[0-9]{9}" required style="width:100%;padding:12px;margin:8px 0;">
-
-<label>Delivery Address</label>
-<textarea id="customerAddress" placeholder="Mukammal address" required style="width:100%;padding:12px;margin:8px 0;"></textarea>
-
-<label>Selected Product</label>
-<input id="selectedProduct" readonly required style="width:100%;padding:12px;margin:8px 0;">
-
-<label>Price</label>
-<input id="selectedPrice" readonly required style="width:100%;padding:12px;margin:8px 0;">
-
-<button class="order-btn" type="submit">Confirm Order on WhatsApp</button>
-</form>
-</section>
 <script>
+
 let productName = "";
 let productPrice = 0;
 
 function selectProduct(name, price) {
+
     productName = name;
     productPrice = price;
 
@@ -395,42 +367,48 @@ function selectProduct(name, price) {
 }
 
 function searchProducts() {
-    let search = document.getElementById("searchBox").value.toLowerCase();
+
+    let search =
+        document.getElementById("searchBox").value.toLowerCase();
 
     document.querySelectorAll(".product").forEach(function(product) {
+
+        let name = product.innerText.toLowerCase();
+
         product.style.display =
-            product.innerText.toLowerCase().includes(search) ? "block" : "none";
+            name.includes(search) ? "block" : "none";
     });
 }
 
 function sendOrder(event) {
+
     event.preventDefault();
 
-    let name = document.getElementById("customerName").value;
-    let phone = document.getElementById("customerPhone").value;
-    let address = document.getElementById("customerAddress").value;
+    let name =
+        document.getElementById("customerName").value;
+
+    let phone =
+        document.getElementById("customerPhone").value;
+
+    let address =
+        document.getElementById("customerAddress").value;
 
     let message =
-        "Assalam-o-Alaikum, mujhe order karna hai.\n\n" +
-        "Name: " + name + "\n" +
-        "Phone: " + phone + "\n" +
-        "Address: " + address + "\n" +
-        "Product: " + productName + "\n" +
+        "Assalam-o-Alaikum, mujhe order karna hai.%0A%0A" +
+        "Name: " + name + "%0A" +
+        "Phone: " + phone + "%0A" +
+        "Address: " + address + "%0A" +
+        "Product: " + productName + "%0A" +
         "Price: Rs. " + productPrice;
 
     window.open(
-        "https://wa.me/923702118764?text=" + encodeURIComponent(message),
+        "https://wa.me/923702118764?text=" +
+        encodeURIComponent(message),
         "_blank"
     );
 }
-</script>
 
-<footer id="contact" style="background:#064e3b;color:white;text-align:center;padding:25px;margin-top:20px;">
-<h3>Pak Choice Store</h3>
-<p>Thank you for shopping with us!</p>
-<p>WhatsApp Orders Available</p>
-<p>© 2026 Pak Choice Store</p>
-</footer>
+</script>
 
 </body>
 </html>
