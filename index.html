@@ -3,183 +3,264 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Pak Choice Store</title>
 
 <style>
-* {
-    box-sizing: border-box;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial, sans-serif;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4faf6;
-    color: #183b2a;
+body{
+  background:#f5f5f5;
+  color:#222;
 }
 
-header {
-    background: linear-gradient(135deg, #064e3b, #0f766e);
-    color: white;
-    text-align: center;
-    padding: 35px 15px;
+/* HEADER */
+header{
+  background:#111;
+  color:white;
+  padding:18px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 34px;
+.logo{
+  font-size:25px;
+  font-weight:bold;
+  color:#00d084;
 }
 
-header p {
-    margin: 10px 0 0;
-    font-size: 16px;
+.cart-btn{
+  background:#00d084;
+  color:#111;
+  border:0;
+  padding:10px 18px;
+  border-radius:25px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-nav {
-    background: white;
-    text-align: center;
-    padding: 15px 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    position: sticky;
-    top: 0;
-    z-index: 10;
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,#111,#333);
+  color:white;
+  text-align:center;
+  padding:55px 20px;
 }
 
-nav a {
-    color: #064e3b;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
+.hero h1{
+  font-size:40px;
+  margin-bottom:10px;
 }
 
-.hero {
-    text-align: center;
-    padding: 55px 20px;
-    background: linear-gradient(135deg, #dcfce7, #ffffff);
+.hero p{
+  font-size:18px;
+  color:#ddd;
 }
 
-.hero h2 {
-    font-size: 32px;
-    margin-bottom: 10px;
-    color: #064e3b;
+/* SEARCH */
+.search-box{
+  padding:25px 5%;
+  text-align:center;
 }
 
-.hero p {
-    color: #486158;
-    font-size: 17px;
+.search-box input{
+  width:100%;
+  max-width:600px;
+  padding:15px 20px;
+  border:1px solid #ddd;
+  border-radius:30px;
+  font-size:16px;
+  outline:none;
 }
 
-.shop-btn {
-    display: inline-block;
-    margin-top: 15px;
-    background: #16a34a;
-    color: white;
-    text-decoration: none;
-    padding: 14px 25px;
-    border-radius: 30px;
-    font-weight: bold;
+/* PRODUCTS */
+.products{
+  padding:10px 5% 50px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
 }
 
-.search {
-    text-align: center;
-    padding: 25px 15px;
+.product{
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+  transition:.3s;
 }
 
-.search input {
-    width: 90%;
-    max-width: 500px;
-    padding: 15px 20px;
-    border: 1px solid #cbd5d1;
-    border-radius: 30px;
-    font-size: 16px;
-    outline: none;
+.product:hover{
+  transform:translateY(-5px);
 }
 
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 22px;
-    padding: 20px;
-    max-width: 1150px;
-    margin: auto;
+.product img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
 }
 
-.product {
-    background: white;
-    padding: 15px;
-    border-radius: 18px;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    transition: transform 0.2s;
+.product-info{
+  padding:16px;
 }
 
-.product:hover {
-    transform: translateY(-4px);
+.product h3{
+  font-size:18px;
+  margin-bottom:8px;
 }
 
-.product img {
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-    border-radius: 14px;
-    background: #f1f5f3;
+.price{
+  color:#00a86b;
+  font-size:21px;
+  font-weight:bold;
 }
 
-.product h3 {
-    font-size: 18px;
-    min-height: 45px;
+.old-price{
+  color:#999;
+  text-decoration:line-through;
+  font-size:14px;
+  margin-left:5px;
 }
 
-.price {
-    font-size: 22px;
-    font-weight: bold;
-    color: #15803d;
-    margin: 12px;
+.discount{
+  display:inline-block;
+  background:#ff3b30;
+  color:white;
+  padding:4px 8px;
+  border-radius:5px;
+  font-size:12px;
+  margin-bottom:8px;
 }
 
-.order-btn {
-    background: #16a34a;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
+.add-btn{
+  width:100%;
+  margin-top:12px;
+  padding:12px;
+  border:0;
+  border-radius:8px;
+  background:#111;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
 }
 
-.delivery {
-    background: white;
-    margin: 30px 15px;
-    padding: 25px;
-    border-radius: 18px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+.add-btn:hover{
+  background:#00a86b;
 }
 
-.delivery h2 {
-    color: #064e3b;
+/* CART */
+.cart{
+  position:fixed;
+  right:-400px;
+  top:0;
+  width:350px;
+  max-width:90%;
+  height:100%;
+  background:white;
+  z-index:2000;
+  box-shadow:-5px 0 20px rgba(0,0,0,.2);
+  padding:25px;
+  transition:.3s;
+  overflow-y:auto;
 }
 
-.delivery input,
-.delivery textarea {
-    width: 100%;
-    padding: 13px;
-    margin: 7px 0 15px;
-    border: 1px solid #cbd5d1;
-    border-radius: 8px;
-    font-size: 15px;
+.cart.active{
+  right:0;
 }
 
-.delivery textarea {
-    min-height: 100px;
-    resize: vertical;
+.cart h2{
+  margin-bottom:20px;
 }
 
-footer {
-    background: #064e3b;
-    color: white;
-    text-align: center;
-    padding: 30px 15px;
-    margin-top: 30px;
+.close-cart{
+  float:right;
+  background:#111;
+  color:white;
+  border:0;
+  padding:5px 10px;
+  cursor:pointer;
+}
+
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #ddd;
+  padding:12px 0;
+}
+
+.cart-item button{
+  background:#ff3b30;
+  color:white;
+  border:0;
+  padding:5px 8px;
+  border-radius:5px;
+}
+
+.total{
+  font-size:20px;
+  font-weight:bold;
+  margin:20px 0;
+}
+
+.whatsapp{
+  display:block;
+  text-align:center;
+  background:#25D366;
+  color:white;
+  padding:14px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:30px 15px;
+}
+
+footer span{
+  color:#00d084;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:550px){
+  header{
+    padding:15px;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  .hero h1{
+    font-size:30px;
+  }
+
+  .products{
+    grid-template-columns:1fr;
+    padding:10px 15px 40px;
+  }
+
+  .product img{
+    height:260px;
+  }
 }
 </style>
 </head>
@@ -187,295 +268,303 @@ footer {
 <body>
 
 <header>
-    <h1>🛍️ Pak Choice Store</h1>
-    <p>Your Choice, Our Priority</p>
+  <div class="logo">Pak Choice Store</div>
+  <button class="cart-btn" onclick="openCart()">
+    🛒 Cart (<span id="cartCount">0</span>)
+  </button>
 </header>
 
-<nav>
-    <a href="#home">Home</a>
-    <a href="#products">Products</a>
-    <a href="#delivery">Order</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<section class="hero" id="home">
-    <h2>Welcome to Pak Choice Store</h2>
-    <p>Quality Products • Best Prices • Easy Ordering</p>
-    <p>Apni pasand ka product select karein aur WhatsApp par order karein.</p>
-    <a href="#products" class="shop-btn">SHOP NOW</a>
+<section class="hero">
+  <h1>Welcome to Pak Choice Store</h1>
+  <p>Quality Products • Best Prices • Easy Shopping</p>
 </section>
 
-<div class="search">
-    <input
-        type="text"
-        id="searchBox"
-        placeholder="🔍 Search your product..."
-        onkeyup="searchProducts()"
-    >
+<div class="search-box">
+  <input
+    type="text"
+    id="search"
+    placeholder="Search products..."
+    onkeyup="searchProducts()"
+  >
 </div>
 
-<section class="products" id="products">
-    <!-- PRODUCT 1 -->
-    <div class="product">
-        <img src="1791106845946.jpg" alt="CeraVe Face Wash">
-        <h3>CeraVe Whitening Face Wash</h3>
-        <div class="price">Rs. 770</div>
-        <button class="order-btn"
-            onclick="selectProduct('CeraVe Whitening Face Wash',770)">
-            Order Now
-        </button>
-    </div>
+<section class="products" id="productList">
 
-    <!-- PRODUCT 2 -->
-    <div class="product">
-        <img src="1791106924351.jpg" alt="Blue Kurta">
-        <h3>Blue Embroidered Kurta Pajama Set</h3>
-        <div class="price">Rs. 2,689</div>
-        <button class="order-btn"
-            onclick="selectProduct('Blue Embroidered Kurta Pajama Set',2689)">
-            Order Now
-        </button>
-    </div>
+<!-- PRODUCT 1 -->
+<div class="product" data-name="Luxury Diamond Watch">
+<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80">
+<div class="product-info">
+<span class="discount">20% OFF</span>
+<h3>Luxury Diamond Watch</h3>
+<div class="price">Rs. 2,999 <span class="old-price">Rs. 3,799</span></div>
+<button class="add-btn" onclick="addToCart('Luxury Diamond Watch',2999)">
+Add to Cart
+</button>
+</div>
+</div>
 
-    <!-- PRODUCT 3 -->
-    <div class="product">
-        <img src="1791106961901.jpg" alt="Women's Shoulder Bag">
-        <h3>Women's Checkered Leather Shoulder Bag</h3>
-        <div class="price">Rs. 2,089</div>
-        <button class="order-btn"
-            onclick="selectProduct('Women Checkered Leather Shoulder Bag',2089)">
-            Order Now
-        </button>
-    </div>
+<!-- PRODUCT 2 -->
+<div class="product" data-name="Premium Men's Sneakers">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80">
+<div class="product-info">
+<span class="discount">15% OFF</span>
+<h3>Premium Men's Sneakers</h3>
+<div class="price">Rs. 3,499 <span class="old-price">Rs. 4,100</span></div>
+<button class="add-btn" onclick="addToCart('Premium Mens Sneakers',3499)">
+Add to Cart
+</button>
+</div>
+</div>
 
-    <!-- PRODUCT 4 -->
-    <div class="product">
-        <img src="https://placehold.co/600x500/e8f5e9/14532d?text=Casual+T-Shirt"
-             alt="Men's Casual T-Shirt">
-        <h3>Men's Casual T-Shirt</h3>
-        <div class="price">Rs. 1,299</div>
-        <button class="order-btn"
-            onclick="selectProduct('Men Casual T-Shirt',1299)">
-            Order Now
-        </button>
-    </div>
+<!-- PRODUCT 3 -->
+<div class="product" data-name="Wireless Bluetooth Earbuds">
+<img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?auto=format&fit=crop&w=700&q=80">
+<div class="product-info">
+<span class="discount">25% OFF</span>
+<h3>Wireless Bluetooth Earbuds</h3>
+<div class="price">Rs. 1,499 <span class="old-price">Rs. 1,999</span></div>
+<button class="add-btn" onclick="addToCart('Wireless Bluetooth Earbuds',1499)">
+Add to Cart
+</button>
+</div>
+</div>
 
-    <!-- PRODUCT 5 -->
-    <div class="product">
-        <img src="https://placehold.co/600x500/fce7f3/831843?text=Handbag"
-             alt="Women's Handbag">
-        <h3>Women's Handbag</h3>
-        <div class="price">Rs. 1,799</div>
-        <button class="order-btn"
-            onclick="selectProduct('Women Handbag',1799)">
-            Order Now
-        </button>
-    </div>
+<!-- PRODUCT 4 -->
+<div class="product" data-name="Stylish Backpack">
+<img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80">
+<div class="product-info">
+<span class="discount">18% OFF</span>
+<h3>Stylish Backpack</h3>
+<div class="price">Rs. 1,999 <span class="old-price">Rs. 2,400</span></div>
+<button class="add-btn" onclick="addToCart('Stylish Backpack',1999)">
+Add to Cart
+</button>
+</div>
+</div>
 
-    <!-- PRODUCT 6 -->
-    <div class="product">
-        <img src="https://placehold.co/600x500/e0f2fe/075985?text=Wireless+Earbuds"
-             alt="Wireless Earbuds">
-        <h3>Wireless Earbuds</h3>
-        <div class="price">Rs. 1,499</div>
-        <button class="order-btn"
-            onclick="selectProduct('Wireless Earbuds',1499)">
-            Order Now
-        </button>
-    </div>
+<!-- PRODUCT 5 -->
+<div class="product" data-name="Fashion Sunglasses">
+<img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=80">
+<div class="product-info">
+<span class="discount">20% OFF</span>
+<h3>Fashion Sunglasses</h3>
+<div class="price">Rs. 999 <span class="old-price">Rs. 1,299</span></div>
+<button class="add-btn" onclick="addToCart('Fashion Sunglasses',999)">
+Add to Cart
+</button>
+</div>
+</div>
 
-    <!-- PRODUCT 7 -->
-    <div class="product">
-        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80"
-             alt="The Ordinary Niacinamide Serum">
-        <h3>The Ordinary Niacinamide Serum</h3>
-        <div class="price">Rs. 2,499</div>
-        <button class="order-btn"
-            onclick="selectProduct('The Ordinary Niacinamide Serum',2499)">
-            Order Now
-        </button>
-    </div>
+<!-- PRODUCT 6 -->
+<div class="product" data-name="Premium Casual T Shirt">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80">
+<div class="product-info">
+<span class="discount">15% OFF</span>
+<h3>Premium Casual T-Shirt</h3>
+<div class="price">Rs. 1,299 <span class="old-price">Rs. 1,499</span></div>
+<button class="add-btn" onclick="addToCart('Premium Casual T Shirt',1299)">
+Add to Cart
+</button>
+</div>
+</div>
 
-    <!-- PRODUCT 8 -->
-    <div class="product">
-        <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=600&q=80"
-             alt="Neutrogena Hydro Boost">
-        <h3>Neutrogena Hydro Boost</h3>
-        <div class="price">Rs. 3,299</div>
-        <button class="order-btn"
-            onclick="selectProduct('Neutrogena Hydro Boost',3299)">
-            Order Now
-        </button>
-    </div>
+<!-- PRODUCT 7 -->
+<div class="product" data-name="Men's Formal Shoes">
+<img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format&fit=crop&w=700&q=80">
+<div class="product-info">
+<span class="discount">20% OFF</span>
+<h3>Men's Formal Shoes</h3>
+<div class="price">Rs. 3,299 <span class="old-price">Rs. 3,999</span></div>
+<button class="add-btn" onclick="addToCart('Mens Formal Shoes',3299)">
+Add to Cart
+</button>
+</div>
+</div>
 
-    <!-- PRODUCT 9 -->
-    <div class="product">
-        <img src="https://images.unsplash.com/photo-1620917669788-be3d4c1e2a8a?auto=format&fit=crop&w=600&q=80"
-             alt="Vaseline Lotion">
-        <h3>Vaseline Intensive Care Lotion</h3>
-        <div class="price">Rs. 1,499</div>
-        <button class="order-btn"
-            onclick="selectProduct('Vaseline Intensive Care Lotion',1499)">
-            Order Now
-        </button>
-    </div>
+<!-- PRODUCT 8 -->
+<div class="product" data-name="LED Desk Lamp">
+<img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=80">
+<div class="product-info">
+<span class="discount">25% OFF</span>
+<h3>LED Desk Lamp</h3>
+<div class="price">Rs. 1,199 <span class="old-price">Rs. 1,599</span></div>
+<button class="add-btn" onclick="addToCart('LED Desk Lamp',1199)">
+Add to Cart
+</button>
+</div>
+</div>
 
-    <!-- PRODUCT 10 -->
-    <div class="product">
-        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80"
-             alt="CeraVe Hydrating Facial Cleanser">
-        <h3>CeraVe Hydrating Facial Cleanser</h3>
-        <div class="price">Rs. 2,999</div>
-        <button class="order-btn"
-            onclick="selectProduct('CeraVe Hydrating Facial Cleanser',2999)">
-            Order Now
-        </button>
-    </div>
+<!-- PRODUCT 9 -->
+<div class="product" data-name="Portable Bluetooth Speaker">
+<img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=700&q=80">
+<div class="product-info">
+<span class="discount">20% OFF</span>
+<h3>Portable Bluetooth Speaker</h3>
+<div class="price">Rs. 2,199 <span class="old-price">Rs. 2,699</span></div>
+<button class="add-btn" onclick="addToCart('Portable Bluetooth Speaker',2199)">
+Add to Cart
+</button>
+</div>
+</div>
 
-    <!-- PRODUCT 11 -->
-    <div class="product">
-        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=600&q=80"
-             alt="CeraVe Moisturizing Cream">
-        <h3>CeraVe Moisturizing Cream</h3>
-        <div class="price">Rs. 3,499</div>
-        <button class="order-btn"
-            onclick="selectProduct('CeraVe Moisturizing Cream',3499)">
-            Order Now
-        </button>
-    </div>
-
-    <!-- PRODUCT 12 -->
-    <div class="product">
-        <img src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=600&q=80"
-             alt="CeraVe Foaming Facial Cleanser">
-        <h3>CeraVe Foaming Facial Cleanser</h3>
-        <div class="price">Rs. 3,395</div>
-        <button class="order-btn"
-            onclick="selectProduct('CeraVe Foaming Facial Cleanser',3395)">
-            Order Now
-        </button>
-    </div>
+<!-- PRODUCT 10 -->
+<div class="product" data-name="Mobile Phone Stand">
+<img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=700&q=80">
+<div class="product-info">
+<span class="discount">30% OFF</span>
+<h3>Mobile Phone Stand</h3>
+<div class="price">Rs. 699 <span class="old-price">Rs. 999</span></div>
+<button class="add-btn" onclick="addToCart('Mobile Phone Stand',699)">
+Add to Cart
+</button>
+</div>
+</div>
 
 </section>
-<section class="delivery" id="delivery">
 
-    <h2>🚚 Delivery Details</h2>
-    <p>Apni details fill karein:</p>
+<!-- CART -->
+<div class="cart" id="cart">
 
-    <form onsubmit="sendOrder(event)">
+<button class="close-cart" onclick="closeCart()">X</button>
 
-        <label>Full Name</label>
-        <input
-            type="text"
-            id="customerName"
-            placeholder="Apna naam"
-            required
-        >
+<h2>🛒 Your Cart</h2>
 
-        <label>Mobile Number</label>
-        <input
-            type="tel"
-            id="customerPhone"
-            placeholder="03XXXXXXXXX"
-            pattern="03[0-9]{9}"
-            required
-        >
+<div id="cartItems"></div>
 
-        <label>Delivery Address</label>
-        <textarea
-            id="customerAddress"
-            placeholder="Mukammal delivery address"
-            required
-        ></textarea>
+<div class="total">
+Total: Rs. <span id="cartTotal">0</span>
+</div>
 
-        <label>Selected Product</label>
-        <input
-            type="text"
-            id="selectedProduct"
-            readonly
-            required
-        >
+<a
+  id="whatsappOrder"
+  class="whatsapp"
+  href="#"
+  target="_blank"
+>
+📱 Order on WhatsApp
+</a>
 
-        <label>Price</label>
-        <input
-            type="text"
-            id="selectedPrice"
-            readonly
-            required
-        >
+</div>
 
-        <button class="order-btn" type="submit">
-            Confirm Order on WhatsApp
-        </button>
-
-    </form>
-</section>
-
-<footer id="contact">
-    <h3>🛍️ Pak Choice Store</h3>
-    <p>Quality Products • Easy Ordering</p>
-    <p>WhatsApp Orders Available</p>
-    <p>© 2026 Pak Choice Store</p>
+<footer>
+<p>© 2026 <span>Pak Choice Store</span></p>
+<p>Quality Products at Best Prices</p>
 </footer>
 
 <script>
 
-let productName = "";
-let productPrice = 0;
+let cart = [];
 
-function selectProduct(name, price) {
+function addToCart(name, price){
 
-    productName = name;
-    productPrice = price;
+  cart.push({
+    name:name,
+    price:price
+  });
 
-    document.getElementById("selectedProduct").value = name;
-    document.getElementById("selectedPrice").value = "Rs. " + price;
+  updateCart();
 
-    document.getElementById("delivery").scrollIntoView({
-        behavior: "smooth"
-    });
+  alert(name + " added to cart!");
 }
 
-function searchProducts() {
+function updateCart(){
 
-    let search =
-        document.getElementById("searchBox").value.toLowerCase();
+  let items = document.getElementById("cartItems");
+  let count = document.getElementById("cartCount");
+  let total = document.getElementById("cartTotal");
 
-    document.querySelectorAll(".product").forEach(function(product) {
+  items.innerHTML = "";
 
-        let name = product.innerText.toLowerCase();
+  let totalPrice = 0;
 
-        product.style.display =
-            name.includes(search) ? "block" : "none";
-    });
+  cart.forEach((item,index)=>{
+
+    totalPrice += item.price;
+
+    items.innerHTML += `
+      <div class="cart-item">
+        <div>
+          <strong>${item.name}</strong><br>
+          Rs. ${item.price.toLocaleString()}
+        </div>
+
+        <button onclick="removeItem(${index})">
+          Remove
+        </button>
+      </div>
+    `;
+  });
+
+  count.innerText = cart.length;
+  total.innerText = totalPrice.toLocaleString();
+
+  createWhatsAppLink();
 }
 
-function sendOrder(event) {
+function removeItem(index){
 
-    event.preventDefault();
+  cart.splice(index,1);
+
+  updateCart();
+}
+
+function openCart(){
+
+  document.getElementById("cart").classList.add("active");
+}
+
+function closeCart(){
+
+  document.getElementById("cart").classList.remove("active");
+}
+
+function searchProducts(){
+
+  let search =
+    document.getElementById("search").value.toLowerCase();
+
+  let products =
+    document.querySelectorAll(".product");
+
+  products.forEach(product=>{
 
     let name =
-        document.getElementById("customerName").value;
+      product.getAttribute("data-name").toLowerCase();
 
-    let phone =
-        document.getElementById("customerPhone").value;
+    if(name.includes(search)){
+      product.style.display = "";
+    }else{
+      product.style.display = "none";
+    }
 
-    let address =
-        document.getElementById("customerAddress").value;
+  });
+}
 
-    let message =
-        "Assalam-o-Alaikum, mujhe order karna hai.%0A%0A" +
-        "Name: " + name + "%0A" +
-        "Phone: " + phone + "%0A" +
-        "Address: " + address + "%0A" +
-        "Product: " + productName + "%0A" +
-        "Price: Rs. " + productPrice;
+function createWhatsAppLink(){
 
-    window.open(
-        "https://wa.me/923702118764?text=" +
-        encodeURIComponent(message),
-        "_blank"
-    );
+  let phone = "923001234567";
+
+  let message = "Assalam o Alaikum! I want to order:%0A%0A";
+
+  cart.forEach((item,index)=>{
+
+    message +=
+      (index+1) + ". " +
+      item.name +
+      " - Rs. " +
+      item.price.toLocaleString() +
+      "%0A";
+  });
+
+  let total =
+    cart.reduce((sum,item)=>sum + item.price,0);
+
+  message +=
+    "%0ATotal: Rs. " +
+    total.toLocaleString();
+
+  document.getElementById("whatsappOrder").href =
+    "https://wa.me/" + phone + "?text=" + message;
 }
 
 </script>
